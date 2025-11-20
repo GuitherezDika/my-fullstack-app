@@ -1,17 +1,22 @@
 1️⃣ Routing & Layouting
-
 app/layout.tsx
-
 app/page.tsx
-
 Folder-based routing
-
 Dynamic routing: [id]
-
 Catch-all routing: [...slug]
-
 Nested layout
+======
+app/
+ ├─ layout.tsx              → Global layout
+ ├─ page.tsx                → Homepage
+ ├─ dashboard/
+ │    ├─ layout.tsx         → Dashboard layout
+ │    ├─ page.tsx           → Dashboard home
+ │    ├─ settings/
+ │    │     ├─ layout.tsx   → Settings layout
+ │    │     └─ page.tsx     → Settings page
 
+======
 2️⃣ Server Component & Client Component
 
 Perbedaan use client
