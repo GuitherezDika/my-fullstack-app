@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1️⃣ Routing & Layouting
 
-## Getting Started
+app/layout.tsx
 
-First, run the development server:
+app/page.tsx
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Folder-based routing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dynamic routing: [id]
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Catch-all routing: [...slug]
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Nested layout
 
-## Learn More
+2️⃣ Server Component & Client Component
 
-To learn more about Next.js, take a look at the following resources:
+Perbedaan use client
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Kapan pakai server component (default)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Kapan butuh client component (useState, useEffect)
 
-## Deploy on Vercel
+3️⃣ Data Fetching (async component)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+fetch() dengan caching
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+fetch({ cache: "no-store" })
+
+Revalidate ISR → export const revalidate = 10;
+
+get data by id (API / database)
+
+4️⃣ API Route (optional)
+
+app/api/.../route.ts
+
+GET, POST, PUT, DELETE
+
+5️⃣ Styling
+
+CSS modules
+
+Tailwind (opsional tapi kuat)
+
+6️⃣ State Management (Next.js + Client Component)
+
+Zustand
+
+Redux Toolkit (opsional)
+
+7️⃣ Deployment
+
+Vercel
