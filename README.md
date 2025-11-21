@@ -122,18 +122,37 @@ Server-first, Client if necessary
  │    ├─ ChartClient.tsx → client
  │    ├─ Card.tsx        → server
 
-==
+========================================
 
-3️⃣ Data Fetching (async component)
+3️⃣ Data Fetching (async component) = Next.js server-first
 
 fetch() dengan caching
-
 fetch({ cache: "no-store" })
-
 Revalidate ISR → export const revalidate = 10;
-
 get data by id (API / database)
 
+Server Component async fetch()
+async function Page() {
+  const data = await fetch("https://api.example.com/users").then(r => r.json());
+  return <div>{data.name}</div>
+}
+=====================================
+data - Next.js Modern
+
+Hari 1 — Data Fetching
+Hari 2 — Revalidasi & caching
+Hari 3 — Server Action
+Hari 4 — Dynamic Route
+Hari 5 — Layouting advanced
+Hari 6 — Deploy + Env
+Hari 7 — Build mini project (Dashboard + Auth)
+
+Day 1. Data Fetching
+buat direktori users
+app/users/page.tsx
+
+
+=======================================
 4️⃣ API Route (optional)
 
 app/api/.../route.ts
@@ -155,3 +174,4 @@ Redux Toolkit (opsional)
 7️⃣ Deployment
 
 Vercel
+============================
