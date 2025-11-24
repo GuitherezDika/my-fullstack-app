@@ -13,8 +13,16 @@ app/
  │    ├─ layout.tsx         → Dashboard layout
  │    ├─ page.tsx           → Dashboard home
  │    ├─ settings/
- │    │     ├─ layout.tsx   → Settings layout
+ │    │     ├─ layout.tsx   → Settings layout // dashboard aside
  │    │     └─ page.tsx     → Settings page
+    docs/[[...slugg]]
+      page.tsx // dynamic slug
+    posts
+      page.tsx // fetch api
+    product/[id]
+      page.tsx // lempar dan get params
+    users
+      page.tsx // fetch api
 
 ======
 2️⃣ Server Component & Client Component
@@ -136,6 +144,179 @@ async function Page() {
   const data = await fetch("https://api.example.com/users").then(r => r.json());
   return <div>{data.name}</div>
 }
+=====================================
+
+NEXT ==
+
+4️⃣ API Routes (Fullstack Next.js)
+
+Belajar membuat backend langsung di Next.js 14 menggunakan App Router:
+
+Folder:
+
+app/api/users/route.ts
+app/api/login/route.ts
+export async function POST(req: Request) {
+  const body = await req.json();
+  return Response.json({ message: "User Created", body });
+}
+Kamu perlu belajar:
+
+GET / POST / PUT / DELETE handler
+
+Validasi body & params
+
+Menggunakan database (Prisma, MongoDB)
+
+Middleware “auth” (JWT)
+
+➡️ Ini pondasi untuk membuat fullstack apps.
+=====================================
+
+5️⃣ Middleware (Auth, Role, Logging)
+
+Middleware berjalan sebelum request masuk ke route.
+
+File:
+
+middleware.ts
+
+
+Bisa buat:
+
+Proteksi route private
+
+Redirect user jika belum login
+
+Cek role (admin / user)
+
+Contoh:
+
+import { NextResponse } from "next/server";
+
+export function middleware(req: Request) {
+  const token = req.cookies.get("token");
+  if (!token) return NextResponse.redirect(new URL("/login", req.url));
+  return NextResponse.next();
+}
+
+===================================
+6️⃣ Database Integration (Pilih salah satu)
+
+Yang paling umum:
+
+Prisma + PostgreSQL
+
+Paling mudah untuk CRUD & login.
+
+MongoDB + Mongoose
+
+Cocok untuk proyek ringan/portfolio.
+
+Belajar:
+
+schema
+
+CRUD
+
+relasi
+
+query from Server Component
+
+===================================
+7️⃣ Authentication (JWT, Credential, OAuth)
+
+Ada 3 pilihan besar:
+
+Next Auth v5 (Recommended)
+
+Login dengan:
+
+Email / Password
+
+Google login
+
+GitHub login, dsb.
+
+JWT Manual (lebih fleksibel)
+
+Login API (POST /api/login)
+
+Generate token
+
+Simpan token di cookie HttpOnly
+
+Middleware untuk proteksi
+
+Protected Route di NextJS
+
+Role-based access
+
+Grouping pages: /dashboard hanya untuk user login
+
+=========================================
+8️⃣ Forms & Actions (Next.js Server Actions)
+
+Fitur modern untuk handle form tanpa API route.
+
+Contoh:
+
+"use server"
+
+export async function createUser(formData: FormData) {
+  const name = formData.get("name");
+  await db.user.create({ data: { name }});
+}
+
+
+Di halaman:
+
+<form action={createUser}>
+  <input name="name"/>
+  <button type="submit">Create</button>
+</form>
+
+
+Tidak butuh onClick / useEffect.
+
+=======================================
+9️⃣ State Management (Client Component)
+
+Jika aplikasi kompleks:
+
+Zustand → paling ringan
+
+Redux Toolkit → corporate
+
+Jotai / Recoil → modern
+
+======================================
+
+🔟 UI Framework
+
+Biar cepet bikin UI cantik:
+
+Tailwind CSS → wajib
+
+Shadcn UI → tombol/input ready
+
+Framer Motion → animasi
+
+===========================================
+
+1️⃣1️⃣ Deployment & Environment
+
+Belajar:
+
+Deploy ke Vercel
+
+Set secret ENV
+
+Set webhook
+
+Edge runtime
+
+Caching & Revalidation
 =====================================
 data - Next.js Modern
 
