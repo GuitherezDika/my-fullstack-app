@@ -171,6 +171,14 @@ Menggunakan database (Prisma, MongoDB)
 Middleware “auth” (JWT)
 
 ➡️ Ini pondasi untuk membuat fullstack apps.
+
+=========
+🔥 Mau saya buatkan LATIHAN PROJECT PRAKTIK API ROUTES seperti:
+1. CRUD Users (GET, POST, PUT, DELETE)
+2. Authentication + JWT Login
+3. CRUD Products REST API
+4. Dashboard Admin fetch dari API
+5. Next.js + Prisma + PostgreSQL end-to-end
 =====================================
 
 5️⃣ Middleware (Auth, Role, Logging)
